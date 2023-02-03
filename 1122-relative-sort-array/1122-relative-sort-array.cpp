@@ -1,3 +1,5 @@
+// TC: O(n*n)
+// SC: O(n)
 class Solution {
 public:
     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
