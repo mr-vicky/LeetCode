@@ -1,44 +1,28 @@
+// TC: O(m+n)
+// SC: O(m+n)
 class Solution {
 public:
     string mergeAlternately(string word1, string word2) {
-        vector<char>ans;
-        int n=word1.length()+word2.length();
-        int l1=word1.length();
-        int l2=word2.length();
+        vector<char>temp;
+        int m = word1.size();
+        int n = word2.size();
+        int ans_length =  m + n;
 
-        if(l1<l2)
+        int i=0, j=0;
+        while(temp.size()<ans_length)
         {
-            for(int i=0; i<l1; i++)
+            if(i<m)
             {
-                ans.push_back(word1[i]);
-                ans.push_back(word2[i]);
-            }
-
-            int i=l1;
-            while(ans.size()<n)
-            {
-                ans.push_back(word2[i]);
+                temp.push_back(word1[i]);
                 i++;
             }
-        }
-        else{
-
-            for(int i=0; i<l2; i++)
+            if(j<n)
             {
-                ans.push_back(word1[i]);
-                ans.push_back(word2[i]);
-            }
-
-            int i=l2;
-            while(ans.size()<n)
-            {
-                ans.push_back(word1[i]);
-                i++;
+                temp.push_back(word2[j]);
+                j++;
             }
         }
-
-        string res(ans.begin(), ans.end());
-        return res;
-        
+        string ans(temp.begin(), temp.end());
+        return ans;
     }
 };
