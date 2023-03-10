@@ -4,8 +4,8 @@ public:
         map<int, int>m;
         vector<int>v;
 
-        for(auto x: arr)
-            m[x]++;
+        for(int i=0; i<arr.size(); i++)
+            m[arr[i]]++;
 
         for(auto x: m)
             v.push_back(x.second);
