@@ -1,21 +1,17 @@
 class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) {
-        set<int>s(arr.begin(), arr.end());
-        vector<int>ans;
-        
-        for(auto x : s)
-        {
-            int counts = 0;
-            counts = count(arr.begin(), arr.end(), x);
-            ans.push_back(counts);
-        }
+        map<int, int>m;
+        vector<int>v;
 
-        for(auto x: ans)
-            if(count(ans.begin(), ans.end(), x)>1)
-                return false;
+        for(auto x: arr)
+            m[x]++;
 
-        return true;
+        for(auto x: m)
+            v.push_back(x.second);
+
+        set<int>s(v.begin(), v.end());
+        return s.size()==v.size();
     }
 
 };
