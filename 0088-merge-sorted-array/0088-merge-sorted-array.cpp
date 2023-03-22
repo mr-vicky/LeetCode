@@ -1,4 +1,4 @@
-// TC: O(m+n)
+// TC: O((m+n)*log(m+n))
 // SC: O(m+n)
 class Solution {
 public:
