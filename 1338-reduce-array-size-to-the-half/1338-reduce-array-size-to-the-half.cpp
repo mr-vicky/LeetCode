@@ -1,3 +1,5 @@
+// TC: O(n*(log(n)))
+// SC: O(n)
 class Solution {
 public:
     int minSetSize(vector<int>& arr) {
