@@ -1,5 +1,3 @@
-// TC: O(n)
-// SC: O(1)
 class Solution {
 public:
     int arrayPairSum(vector<int>& nums) {
@@ -9,7 +7,6 @@ public:
         for(int i=0; i<n; i++)
             if(i%2==0)
                 ans += nums[i];
-            
         return ans;
     }
 };
