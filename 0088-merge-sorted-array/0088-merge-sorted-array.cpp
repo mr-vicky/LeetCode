@@ -1,8 +1,6 @@
-// TC: O(m+n)
-// SC: O(1)
 class Solution {
 public:
-    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n){
         nums1.resize(m);
         int j = 0;
         for(int i=m; i<m+n; i++)
