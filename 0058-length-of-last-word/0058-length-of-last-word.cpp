@@ -1,3 +1,5 @@
+// TC: O(N)
+// SC: O(1)
 class Solution {
 public:
     int lengthOfLastWord(string s) {
@@ -7,7 +9,6 @@ public:
         {
             if(s[i]!=' ')
                 count++;
-            
             if(count>0 && s[i]==' ')
                 break;
         }
