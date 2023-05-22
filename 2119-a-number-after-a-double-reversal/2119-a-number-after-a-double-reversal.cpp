@@ -16,6 +16,7 @@ public:
             reversed2 = reversed2*10 + reversed1%10;
             reversed1 = reversed1/10;
         }
+        
         return reversed2==temp;
     }
 };
