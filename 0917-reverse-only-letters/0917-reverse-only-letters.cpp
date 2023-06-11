@@ -12,12 +12,10 @@ public:
                 i++;
                 j--;
             }
-            else if(!isalpha(s[i])){
+            else if(!isalpha(s[i]))
                 i++;
-            }
-            else{
+            else
                 j--;
-            }
         }
         return s;
     }
