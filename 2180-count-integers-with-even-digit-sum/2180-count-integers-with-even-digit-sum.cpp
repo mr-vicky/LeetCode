@@ -7,10 +7,8 @@ public:
         if(num<10)
         {
             for(int i=1; i<=num; i++)
-            {
                 if(i%2==0)
                     count++;
-            }
             return count;
         }
         else 
@@ -22,7 +20,6 @@ public:
                 while(a>0)
                 {
                     sum = sum + a%10;
-                    
                     a /= 10;
                 }
                 if(sum%2==0)
