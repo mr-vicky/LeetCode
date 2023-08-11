@@ -6,13 +6,11 @@ public:
         unordered_map<int, int>mp;
 
         sort(v.begin(), v.end());
-        for(auto x: v)
-        {
+        for(auto x: v){
             mp.emplace(x, mp.size()+1);
         }
         
-        for(int i=0; i<v.size(); i++)
-        {
+        for(int i=0; i<v.size(); i++){
             v[i] = mp[arr[i]];
         }
         return v;
