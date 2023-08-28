@@ -1,14 +1,18 @@
+// Kadanes's Algorithms
+// TC: O(n)
+// SC: O(1)
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int res=nums[0];
-        int maxEnding=nums[0];
-        int n = nums.size();
-        for(int i=1; i<n; i++)
-        {
-           maxEnding = max(maxEnding+nums[i], nums[i]);
-           res = max(res, maxEnding);
+        int sum = 0;
+        int max_sum = nums[0];
+        for(auto it : nums){
+            sum += it;
+            max_sum = max(max_sum, sum);
+            if(sum < 0){
+                sum = 0;
+            }
         }
-        return res;
+        return max_sum;
     }
 };
