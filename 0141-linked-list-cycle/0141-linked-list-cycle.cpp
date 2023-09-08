@@ -12,6 +12,7 @@ public:
         if(head == NULL || head->next == NULL) return false;
         ListNode *slow, *fast;
         slow = fast = head;
+        
         do{
             slow = slow->next;
             fast = fast->next;
