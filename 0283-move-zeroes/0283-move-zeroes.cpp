@@ -1,27 +1,23 @@
-// Method : 2 (Inplace)
-// TC: O(n*n)
+// Method 3: Most Optimal(Two Pointer approach)
+// TC: O(n)
 // SC: O(1)
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
         int n = nums.size();
-        int count = 0;
+        int j = n-1;
         
-        for(int i = n-1; i >= 0; i--){
+        for(int i = 0; i < n ; i++){
             if(nums[i] == 0){
-                int j = i;
-                count++;
-                while(j < n-1){
-                    nums[j] = nums[j + 1];
-                    j++;
-                }
+                j = i;
+                break;
             }
         }
-        int i = n-1;
-        while(count){
-            nums[i] = 0;
-            count--;
-            i--;
+        for(int i = j+1; i < n; i++){
+            if(nums[i] != 0){
+                swap(nums[i], nums[j]);
+                j++;
+            }
         }
     }
 };
