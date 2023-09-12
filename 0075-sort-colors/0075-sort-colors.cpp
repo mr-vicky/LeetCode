@@ -1,19 +1,39 @@
+// Method 2: (In-place)
+// TC: O(n)
+// SC: O(1)
+
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        vector<int>v;
+        int n = nums.size();
+        int count_0 = 0;
+        int count_1 = 0;
+        int count_2 = 0;
 
-        for(auto x: nums)
-            if(x==0)
-                v.push_back(x);
+        for(int i = 0; i < n; i++){
+            if(nums[i] == 0){
+                count_0++;
+            }
+            else if(nums[i] == 1){
+                count_1++;
+            }
+            else{
+                count_2++;
+            }
+        }
 
-        for(auto x: nums)
-            if(x==1)
-                v.push_back(x);
-
-        for(auto x: nums)
-            if(x==2)
-                v.push_back(x);
-        nums=v;        
+        nums.clear();
+        while(count_0){
+            nums.push_back(0);
+            count_0--;
+        }
+        while(count_1){
+            nums.push_back(1);
+            count_1--;
+        }
+        while(count_2){
+            nums.push_back(2);
+            count_2--;
+        }
     }
 };
