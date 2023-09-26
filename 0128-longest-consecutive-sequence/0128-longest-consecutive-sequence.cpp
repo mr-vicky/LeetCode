@@ -1,22 +1,27 @@
+// Method 2:
+// TC: O(n*log(n))
+// SC: O(1)
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-        unordered_set<int> s(nums.begin(), nums.end());
-        int longest = 0;
+        if(nums.size() == 0) return 0; 
+        sort(nums.begin(), nums.end());
         int n = nums.size();
+        int last_smaller = INT_MIN;
+        int count = 0;
+        int longest = 1;
 
         for(int i = 0; i < n; i++){
-            if(s.find(nums[i] - 1) != s.end())
-                continue;
-            else{
-                int count = 0;
-                int curr_ele = nums[i];
-                while(s.find(curr_ele) != s.end()){
-                    count++;
-                    curr_ele++;
-                }
-                longest = max(longest, count);
+            if(nums[i] - 1 == last_smaller){
+                count++;
+                last_smaller = nums[i];
             }
+            else if(last_smaller != nums[i]){
+                count = 1;
+                last_smaller = nums[i];
+            }
+
+            longest = max(longest, count);
         }
         return longest;
     }
