@@ -1,18 +1,12 @@
-// TC: O(n^2)
+// TC: O(log(N))
 // SC: O(1)
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
-        int max = 0;
         int n = nums.size();
-        for(int i=0; i<n; i++)
-        {
-            for(int j=i+1; j<n; j++)
-            {
-                if(max < (nums[i]-1)*(nums[j]-1))
-                    max = (nums[i]-1)*(nums[j]-1);
-            }
-        }
-        return max;
+        sort(nums.begin(), nums.end());
+        int max1 = nums[n-1];
+        int max2 = nums[n-2];
+        return (max1 - 1) * (max2 - 1);
     }
 };
