@@ -1,10 +1,8 @@
-// TC: O(n(log(n)))
-// SC: O(1)
 class Solution {
 public:
     int maxProductDifference(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
         int n = nums.size();
-        return (nums[n-1]*nums[n-2])-(nums[0]*nums[1]);
+        sort(nums.begin(), nums.end());
+        return nums[n-1] * nums[n-2] - nums[0] * nums[1];
     }
 };
