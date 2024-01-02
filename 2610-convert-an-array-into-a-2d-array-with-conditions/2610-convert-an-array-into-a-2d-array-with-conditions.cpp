@@ -1,21 +1,29 @@
 class Solution {
 public:
     vector<vector<int>> findMatrix(vector<int>& nums) {
-        map<int, int>mp;
-        int max_rows=0;
+        unordered_map<int, int>freq;
+        vector<vector<int>>res;
 
-        for(int i=0; i<nums.size(); i++)
-            mp[nums[i]]++;
+        for(int i = 0; i < nums.size(); i++){
+            freq[nums[i]]++;
+        }
+        int maxi = 0;
+        for(auto x: freq){
+            maxi = max(maxi, x.second);
+        }
 
-        for(auto &[element, freq]: mp)
-            max_rows = max(max_rows, freq);
-
-        vector<vector<int>>ans(max_rows);
-
-        for(auto &[element, freq]: mp)
-            for(int i=0; i<freq; i++)
-                ans[i].push_back(element);
-
-        return ans;
+        for(auto x: freq) cout << x.first << " " << x.second << endl;
+        cout << endl;
+        for(int i = 0; i < maxi; i++){
+            vector<int>temp;
+            for(auto& x:freq){
+                if(x.second>0){
+                    temp.push_back(x.first);
+                    x.second--;
+                }
+            }
+            res.push_back(temp);
+        }
+        return res;
     }
 };
