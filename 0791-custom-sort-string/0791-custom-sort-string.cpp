@@ -1,20 +1,31 @@
 class Solution {
 public:
     string customSortString(string order, string s) {
+        int n = order.size();
+        int m = s.length();
         string res = "";
-        int n = order.length();
-        int i = 0;
-        for(int i = 0; i < order.length(); i++){
-            for(int j = 0; j < s.length(); j++){
+
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
                 if(order[i] == s[j]){
                     res += s[j];
-                    s[j] = '0';
                 }
             }
         }
-        for(auto x: s)
-            if(x != '0')
-                res += x;
+
+        for(int i = 0; i < s.size(); i++){
+            bool flag = false;
+            for(int j = 0; j < order.size(); j++){
+                if(s[i] == order[j]){
+                   flag = true;
+                   break; 
+                }
+            }
+            if(flag == false){
+                res+= s[i];
+            }
+        }
+
         return res;
     }
 };
