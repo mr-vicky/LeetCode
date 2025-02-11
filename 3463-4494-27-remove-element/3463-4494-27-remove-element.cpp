@@ -1,15 +1,17 @@
+// In-place Solution -> 
 // TC: O(N)
-// SC: O(N)
+// SC: O(1) 
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
-        vector<int> res;
-        for(auto n : nums){
-            if(n != val){
-                res.push_back(n);
+        int k = 0;
+
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] != val){
+                nums[k] = nums[i];
+                k++;
             }
         }
-        nums = res;
-        return res.size();
+        return k;
     }
 };
